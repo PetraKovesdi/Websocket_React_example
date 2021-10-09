@@ -10,7 +10,9 @@ let stompClient = '';
 
 export const MyWebsocket = () => {
 
-    const [user] = useContext(UserContext);
+    const user = useContext(UserContext).user;
+
+    const selectedUser = useContext(UserContext).selectedUser;
 
     const connect =(username)=> {
         if (username === ""){
@@ -31,20 +33,30 @@ export const MyWebsocket = () => {
             console.log(error);
           }
         );
-      }
+    }
     
-      const disconnect =()=> {
+    const disconnect =()=> {
         if (stompClient) {
           stompClient.disconnect();
         }
-      }
+    }
 
+
+
+    const sendMessage = () => {
+
+        stompClient.send(`/app/chat/${selectedUser}`,JSON.stringify({
+            fromLogin: user,
+            message: `Hi there ${selectedUser}`},{} )
+        )
+    }
 
 
     return (
         <div>
             <button onClick={()=>connect(user)}>Connect to chat</button>
-            <button onClick={disconnect}>Disconnect from chat</button>
+            <button onClick={disconnect}>Disconnect from chat</button><br/>
+            <button onClick={sendMessage}>Send welcome to selected user</button>
         </div>
     )
 }

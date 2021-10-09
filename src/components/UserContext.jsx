@@ -7,9 +7,10 @@ export const UserContext = createContext();
 export const UserProvider = (props) => {
 
     const [user, setUser] = useState("");
+    const [selectedUser, setSelectedUser] = useState("");
 
     return (
-        <UserContext.Provider value={[user, setUser]}>
+        <UserContext.Provider value={{"user": user, "setUser": setUser, "selectedUser": selectedUser, "setSelectedUser": setSelectedUser}}>
             {props.children}
         </UserContext.Provider>
     )

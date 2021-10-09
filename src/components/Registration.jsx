@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { UserContext } from './UserContext';
 
 export const Registration = () => {
-    const setUser = useContext(UserContext)[1];
+    const setUser = useContext(UserContext).setUser;
     const [input, setInput] = useState();
 
 

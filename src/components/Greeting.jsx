@@ -3,7 +3,7 @@ import { UserContext } from './UserContext';
 
 export const Greeting = () => {
 
-    const [user] = useContext(UserContext);
+    const user = useContext(UserContext).user;
     const [userDisplayed, setUserDisplayed] = useState();
 
     
