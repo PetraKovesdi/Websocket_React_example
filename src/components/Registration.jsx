@@ -9,6 +9,9 @@ export const Registration = () => {
     function registerUser(){
         setUser(input);
         console.log("Registered as ", input);
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', `http://127.0.0.1:8080/registration/${input}`);
+        xhr.send();
         
     }
 
