@@ -18,7 +18,7 @@ export const Registration = () => {
     return (
         <div>
             <input onChange={(e)=>setInput(e.target.value)}/>
-            <button onClick={registerUser}>Submit</button>
+            <button onClick={registerUser}>Log in/Register</button>
         </div>
     )
 }

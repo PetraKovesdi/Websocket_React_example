@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <UserProvider>
+        <Greeting />
         <Registration />
         <MyWebsocket />
         <DisplayUsers />
-        <Greeting />
       </UserProvider>
     </div>
   );

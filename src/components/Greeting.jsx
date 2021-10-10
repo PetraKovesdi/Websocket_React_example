@@ -4,8 +4,9 @@ import { UserContext } from './UserContext';
 export const Greeting = () => {
 
     const user = useContext(UserContext).user;
-    const [userDisplayed, setUserDisplayed] = useState();
+    const [userDisplayed, setUserDisplayed] = useState("");
 
+    let isLoggedIn = userDisplayed === "" ? false : true; 
     
 
     useEffect(() => {
@@ -16,7 +17,8 @@ export const Greeting = () => {
 
     return (
         <div>
-            {`Hello ${userDisplayed}!`}
+            {isLoggedIn ? 
+            `Logged in as ${userDisplayed}.` : "Please log in."}
         </div>
     )
 }
